@@ -2,8 +2,14 @@ import bd from "../assets/carta-p2.png";
 
 export default function SegundaParte() {
     return (
-        <div>
-            <img src={bd} alt="Boda" className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl h-auto" />
+        <div className="flex justify-center">
+            <img 
+              src={bd} 
+              alt="Boda" 
+              className="w-[90vw] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto" 
+              loading="lazy"
+              decoding="async"
+            />
         </div>
     );
 }
