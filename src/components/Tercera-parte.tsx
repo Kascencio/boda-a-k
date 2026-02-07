@@ -1,20 +1,20 @@
-import bd from "../assets/optimized/carta-p3.webp";
+import bd from "../assets/optimized/tercera-parte.webp";
 import calendario from "../assets/optimized/calendario.webp";
 
 export default function TerceraParte() {
     return (
-        <div className="flex flex-col items-center gap-4">
+        <div className="relative flex flex-col items-center mt-16">
             <img 
               src={bd} 
               alt="Boda" 
-              className="w-[90vw] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto" 
+              className="w-screen h-auto scale-[1.75] sm:scale-150 md:scale-130" 
               loading="lazy"
               decoding="async"
             />
             <img 
               src={calendario} 
               alt="Calendario" 
-              className="w-[80vw] max-w-xs sm:max-w-sm md:max-w-md h-auto"
+              className="absolute bottom-0 right-4 w-[30vw] max-w-[120px] sm:max-w-[200px] md:max-w-[400px] lg:max-w-[500px] h-auto translate-y-1/4"
               loading="lazy"
               decoding="async"
             />

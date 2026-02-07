@@ -57,7 +57,7 @@ export default function PrimeraParte() {
       <img
         src={boda}
         alt="Boda"
-        className="imagen-primera-parte"
+        className="w-screen h-auto scale-125 md:scale-100 md:w-auto imagen-primera-parte"
         loading="eager"
         fetchPriority="high"
         decoding="async"
