@@ -1,5 +1,5 @@
-import bd from "../assets/carta-p3.png";
-import calendario from "../assets/calendario.png";
+import bd from "../assets/optimized/carta-p3.webp";
+import calendario from "../assets/optimized/calendario.webp";
 
 export default function TerceraParte() {
     return (

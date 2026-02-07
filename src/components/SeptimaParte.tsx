@@ -1,4 +1,4 @@
-import bd from "../assets/carta-p7.png";
+import bd from "../assets/optimized/carta-p7.webp";
 
 export default function SeptimaParte() {
   return (

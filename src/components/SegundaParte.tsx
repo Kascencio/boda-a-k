@@ -1,4 +1,4 @@
-import bd from "../assets/carta-p2.png";
+import bd from "../assets/optimized/carta-p2.webp";
 
 export default function SegundaParte() {
     return (

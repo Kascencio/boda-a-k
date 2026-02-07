@@ -1,47 +1,55 @@
-import boda from "../assets/Carta-primeraparte.svg";
+import boda from "../assets/optimized/Carta-primeraparte.webp";
 import { useEffect, useState } from "react";
 
 export default function PrimeraParte() {
-  const [isAnimated, setIsAnimated] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [shrinkSpace, setShrinkSpace] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsAnimated(true);
-    }, 300);
-    return () => clearTimeout(timer);
+    // Mostrar la imagen
+    const showTimer = setTimeout(() => {
+      setIsVisible(true);
+    }, 200);
+    
+    // Reducir el espacio después de mostrar la imagen
+    const shrinkTimer = setTimeout(() => {
+      setShrinkSpace(true);
+    }, 3000);
+    
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(shrinkTimer);
+    };
   }, []);
 
   return (
-    <div className="flex justify-center items-center mt-8 w-full px-2 sm:px-4">
+    <div className="flex flex-col items-center w-full">
+      {/* Espaciador superior que se anima */}
+      <div 
+        style={{
+          height: shrinkSpace ? '2rem' : '35vh',
+          transition: 'height 3s cubic-bezier(0.4, 0, 0.2, 1)',
+        }}
+      />
+      
       <style>{`
-        @keyframes fadeSlideDown {
-          0% {
-            transform: translateY(-50px);
-            opacity: 0;
-          }
-          100% {
-            transform: translateY(0);
-            opacity: 1;
-          }
-        }
-        .animacion-entrada {
-          animation: fadeSlideDown 1.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-        }
         .imagen-primera-parte {
           width: 95vw;
-          max-width: 1200px;
+          max-width: 700px;
           height: auto;
         }
+        
         @media (min-width: 768px) {
           .imagen-primera-parte {
-            width: 85vw;
-            max-width: 1400px;
+            width: 80vw;
+            max-width: 1000px;
           }
         }
+        
         @media (min-width: 1024px) {
           .imagen-primera-parte {
-            width: 80vw;
-            max-width: 1600px;
+            width: 70vw;
+            max-width: 1200px;
           }
         }
       `}</style>
@@ -49,12 +57,30 @@ export default function PrimeraParte() {
       <img
         src={boda}
         alt="Boda"
-        className={`imagen-primera-parte ${isAnimated ? 'animacion-entrada' : ''}`}
-        style={{ 
-          opacity: isAnimated ? undefined : 0,
-          transform: isAnimated ? undefined : 'translateY(-50px)'
+        className="imagen-primera-parte"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0)' : 'translateY(-30px)',
+          transition: 'opacity 1s ease-out, transform 1s ease-out',
+        }}
+      />
+      
+      {/* Espaciador inferior que se anima */}
+      <div 
+        style={{
+          height: shrinkSpace ? '0' : '35vh',
+          transition: 'height 3s cubic-bezier(0.4, 0, 0.2, 1)',
         }}
       />
     </div>
   );
 }
+
+
+
+
+
+

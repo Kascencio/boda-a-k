@@ -1,4 +1,4 @@
-import bd from "../assets/carta-p4.png";
+import bd from "../assets/optimized/carta-p4.webp";
 
 export default function CuartaParte() {
   return (

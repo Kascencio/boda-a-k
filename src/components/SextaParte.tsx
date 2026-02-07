@@ -1,4 +1,4 @@
-import bd from "../assets/carta-p6.png";
+import bd from "../assets/optimized/carta-p6.webp";
 
 export default function SextaParte() {
     return (
