@@ -6,18 +6,30 @@ import Pt4 from "./components/CuartaParte";
 import Pt5 from "./components/QuintaParte";
 import Pt6 from "./components/SextaParte";
 import Pt7 from "./components/SeptimaParte";
+import Pt8 from "./components/OctavaParte";
 import FadeInOnScroll from "./components/FadeInOnScroll";
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { iniciarLenis } from "./lib/lenis";
 import "./App.css";
 
 function App() {
+  const [showForm, setShowForm] = useState(false);
+  const formRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const lenis = iniciarLenis();
     return () => {
       lenis.destroy();
     };
   }, []);
+
+  useEffect(() => {
+    if (showForm && formRef.current) {
+      setTimeout(() => {
+        formRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 100);
+    }
+  }, [showForm]);
 
   return (
     <>
@@ -65,12 +77,24 @@ function App() {
 
             <div className="w-full flex justify-center md:col-span-3 md:col-start-2">
               <FadeInOnScroll delay={100}>
-                <Pt7 />
+                <Pt7 onToggleForm={() => setShowForm(!showForm)} />
               </FadeInOnScroll>
+            </div>
+
+            {showForm && (
+              <div 
+                ref={formRef}
+                className="w-full flex justify-center md:col-span-5 scroll-mt-20 py-10"
+              >
+                <FadeInOnScroll>
+                  <Pt8 />
+                </FadeInOnScroll>
+              </div>
+            )}
             </div>
           </div>
         </div>
-      </div>
+
     </>
   );
 }
