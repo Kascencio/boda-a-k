@@ -37,11 +37,13 @@ export default function PrimeraParte({ startAnimation = true }: { startAnimation
            // If offsetHeight is 0 or null, fallback to vh (element might not be fully rendered?)
            // But containerRef is the wrapper div.
            const eh = containerRef.current.offsetHeight || vh;
-           const offset = - (vh - eh) / 2;
+           // "Mas abajo" = Scroll further down = Add positive pixel value to offset
+           // We add 25% of viewport height to push the view down, making the envelope appear higher 
+           const offset = - (vh - eh) / 2 + (vh * 0.3);
 
            lenis.scrollTo(containerRef.current, {
              offset: offset, 
-             duration: 2.5, 
+             duration: 1.5, 
              easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) 
            });
         } else if (attempts > 10) {

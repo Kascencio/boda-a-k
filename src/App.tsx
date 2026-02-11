@@ -13,6 +13,7 @@ import { useEffect, useState, useRef } from "react";
 import { iniciarLenis, setLenis } from "./lib/lenis";
 import "./App.css";
 
+
 function App() {
   const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(true);
