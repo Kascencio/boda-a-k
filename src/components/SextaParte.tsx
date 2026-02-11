@@ -1,8 +1,9 @@
-import bd from "../assets/optimized/carta-p6.webp";
+import bd from "../assets/optimized/sexta-parte.webp";
 
 export default function SextaParte() {
     return (
         <div className="flex justify-center">
+            <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51939777" target="_blank" rel="noopener noreferrer">
             <img 
               src={bd} 
               alt="Boda" 
@@ -10,6 +11,7 @@ export default function SextaParte() {
               loading="lazy"
               decoding="async"
             />
+            </a>
         </div>
     );
 }
