@@ -6,7 +6,7 @@ export default function CuartaParte() {
       <img
         src={bd}
         alt="Boda"
-        className="w-11/12 max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl h-auto cursor-pointer hover:opacity-90 transition-opacity"
+        className="w-screen h-auto scale-107 sm:scale-150 md:scale-80 lg:scale-100 cursor-pointer hover:opacity-90 transition-opacity"
         loading="lazy"
         decoding="async"
       />
