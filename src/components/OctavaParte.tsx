@@ -130,7 +130,7 @@ export default function OctavaParte() {
       {!result ? (
         <form onSubmit={handleSubmit} className="w-full flex flex-col gap-6">
           <div className="flex flex-col gap-2">
-            <label className="text-xs uppercase tracking-[0.2em] text-[#8A8A8A] text-center">Nombre Completo</label>
+            <label className="text-xs uppercase tracking-[0.2em] text-[#8A8A8A] text-center">1 Nombre y 1 Apellido</label>
             <input
               type="text"
               value={name}
