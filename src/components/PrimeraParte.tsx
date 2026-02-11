@@ -2,32 +2,61 @@ import { useEffect, useState, useRef } from "react";
 
 import cartaContenidoSvg from "../assets/Carta-contenido.svg";
 import selloWebp from "../assets/optimized/carta-sello.webp";
+import { getLenis } from "../lib/lenis";
 
-export default function PrimeraParte() {
+export default function PrimeraParte({ startAnimation = true }: { startAnimation?: boolean }) {
   const [play, setPlay] = useState(false);
 
   useEffect(() => {
-    // Load Google Font
-    const link = document.createElement("link");
-    link.href = "https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap";
-    link.rel = "stylesheet";
-    document.head.appendChild(link);
+    if (startAnimation) {
+      const t1 = setTimeout(() => setPlay(true), 100); // Short delay after loading screen fades
+      return () => clearTimeout(t1);
+    }
+  }, [startAnimation]);
 
-    const t1 = setTimeout(() => setPlay(true), 300);
+  useEffect(() => {
+    if (!play) return; // Only run auto-scroll logic if playing
+
+    // Load Google Font
+    const fontLink = document.createElement("link");
+    fontLink.href = "https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap";
+    fontLink.rel = "stylesheet";
+    document.head.appendChild(fontLink);
 
     // Auto-scroll to center after animation completes (300ms delay + 2000ms animation + 1500ms delay = ~3.8s)
     const t2 = setTimeout(() => {
-      if (containerRef.current) {
-        containerRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
+      // Retry getting lenis a few times in case of race condition
+      let attempts = 0;
+      const interval = setInterval(() => {
+        const lenis = getLenis();
+        attempts++;
+        
+        if (lenis && containerRef.current) {
+           clearInterval(interval);
+           const vh = window.innerHeight;
+           // If offsetHeight is 0 or null, fallback to vh (element might not be fully rendered?)
+           // But containerRef is the wrapper div.
+           const eh = containerRef.current.offsetHeight || vh;
+           const offset = - (vh - eh) / 2;
+
+           lenis.scrollTo(containerRef.current, {
+             offset: offset, 
+             duration: 2.5, 
+             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) 
+           });
+        } else if (attempts > 10) {
+           clearInterval(interval);
+           // Fallback to native if Lenis is truly missing after 1s
+           containerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 100);
     }, 4000);
 
     return () => {
-      clearTimeout(t1);
       clearTimeout(t2);
-      document.head.removeChild(link);
+      document.head.removeChild(fontLink);
     };
-  }, []);
+  }, [play]);
 
   /* ── Coordenadas del sobre (viewBox 0 0 1024.5 576) ── */
   const ENV = {
@@ -66,7 +95,7 @@ export default function PrimeraParte() {
         .artboard{
           position: relative;
           width: 100%;
-          aspect-ratio: 716 / 750;
+          aspect-ratio: 816 / 750;
           overflow: visible;
         }
 
@@ -224,7 +253,7 @@ export default function PrimeraParte() {
           {/* ═══════════ SVG 1: BASE LAYER ═══════════ */}
 <svg
             className="master-svg svg-layer-base"
-            viewBox="100 -300 824 750"
+            viewBox="245 -300 824 850"
             preserveAspectRatio="xMidYMid meet"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -338,7 +367,7 @@ export default function PrimeraParte() {
               {/* ═══════════ 2) Carta INSIDE pocket (Behind front flaps) ═══════════ */}
               <g className="letter_mover_anim">
                 <g id="letter_outside" clipPath="url(#clip_letter_outside)">
-                  <image href={cartaContenidoSvg} x="0" y="0" width="1024.5" height="576" />
+                  <image href={cartaContenidoSvg} x="0" y="0" width="1305" height="976" />
                 </g>
               </g>
 
@@ -487,7 +516,7 @@ export default function PrimeraParte() {
 {/* ═══════════ SVG 2: OVERLAY LAYER ═══════════ */}
 <svg
             className="master-svg svg-layer-overlay"
-            viewBox="245 -300 824 850"
+            viewBox="50 -300 824 850"
             preserveAspectRatio="xMidYMid meet"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -504,7 +533,7 @@ export default function PrimeraParte() {
               </clipPath>
 
               <mask id="mask_no_flap" maskUnits="userSpaceOnUse">
-                <rect x="0" y="0" width="1024.5" height="576" fill="white" />
+                <rect x="0" y="0" width="1305" height="850" fill="white" />
                 <use href="#flap_polygon" fill="black" />
               </mask>
 
@@ -601,7 +630,7 @@ export default function PrimeraParte() {
               {/* ═══════════ 2) Carta INSIDE pocket (Behind front flaps) ═══════════ */}
               <g className="letter_mover_anim">
                 <g id="letter_outside_overlay" clipPath="url(#clip_letter_outside_overlay)">
-                  <image href={cartaContenidoSvg} x="0" y="0" width="1024.5" height="576" />
+                  <image href={cartaContenidoSvg} x="0" y="0" width="1324.5" height="576" />
                 </g>
               </g>
 
@@ -741,7 +770,7 @@ export default function PrimeraParte() {
               {/* ═══════════ 6) Carta ABOVE envelope (revealed) ═══════════ */}
               <g id="letter_mover_overlay">
                 <g id="letter_inside" clipPath="url(#clip_letter_inside_overlay)">
-                  <image href={cartaContenidoSvg} x="0" y="0" width="1305" height="976" />
+                  <image href={cartaContenidoSvg} x="-400" y="0" width="1705" height="976" />
                 </g>
               </g>
             </g>

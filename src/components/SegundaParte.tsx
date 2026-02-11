@@ -6,7 +6,7 @@ export default function SegundaParte() {
             <img 
               src={bd} 
               alt="Boda" 
-              className="w-[90vw] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto" 
+              className="w-screen h-auto sm:scale-150 md:scale-50 lg:scale-70"
               loading="lazy"
               decoding="async"
             />

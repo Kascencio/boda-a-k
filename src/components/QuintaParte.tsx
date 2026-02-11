@@ -8,7 +8,7 @@ export default function QuintaParte() {
         alt="Boda"
         loading="lazy"
         decoding="async"
-        className="w-[90vw] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto"
+        className="w-[92vw] max-w-sm sm:max-w-md md:max-w-md lg:max-w-lg xl:max-w-xl h-auto cursor-pointer hover:opacity-90 transition-opacity"
       />
     </div>
   );

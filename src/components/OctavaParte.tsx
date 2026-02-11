@@ -2,12 +2,26 @@ import { useState } from 'react';
 
 // Mock Guest Lists
 const PHONE_KEVIN = '529934010672';
-const PHONE_AZUCENA = '59160534978';
+const PHONE_AZUCENA = '529932899001';
 
 const GUEST_LIST_KEVIN = [
-  { name: 'Familia Perez', tickets: 2 },
-  { name: 'Juan Perez', tickets: 1 },
+  { name: 'Jacobina de la Flor', tickets: 2 },
+  { name: 'Isaac Perez', tickets: 1 },
+  { name: 'Moises Ramos', tickets: 1 },
   { name: 'Kevin Eduardo Ascencio de la Flor', tickets: 1 },
+  { name: 'Sandra Luz', tickets: 1 },
+  { name: 'Olga Beatriz', tickets: 1 },
+  { name: 'Ana Mendiola', tickets: 2 },
+  { name: 'Anda De la Flor', tickets: 1 },
+  { name: 'Luis Gustavo', tickets: 2 },
+  { name: 'Ari Bautista', tickets: 1 },
+  { name: 'Marcos Perez', tickets: 1 },
+  { name: 'Hector De la Flor', tickets: 1 },
+  { name: 'Edgar Ascencio', tickets: 1 },
+  { name: 'Claudia Mendez', tickets: 2 },
+  { name: 'Jorge Santiago', tickets: 1 },
+  { name: 'Sergio Reyes', tickets: 1 },
+  { name: 'Marcos Ramos', tickets: 1 },
 ];
 
 const GUEST_LIST_AZUCENA = [
