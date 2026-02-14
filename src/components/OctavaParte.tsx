@@ -6,6 +6,7 @@ const PHONE_AZUCENA = '529932899001';
 
 const GUEST_LIST_KEVIN = [
   { name: 'Jacobina de la Flor', tickets: 2 },
+  { name: 'Eduardo Ascencio', tickets: 2 },
   { name: 'Isaac Perez', tickets: 1 },
   { name: 'Moises Ramos', tickets: 1 },
   { name: 'Adriana Vargas', tickets: 1 },
@@ -22,6 +23,9 @@ const GUEST_LIST_KEVIN = [
   { name: 'Jorge Santiago', tickets: 1 },
   { name: 'Sergio Reyes', tickets: 1 },
   { name: 'Marcos Ramos', tickets: 1 },
+  { name: 'Paty Morales', tickets: 2 },
+  { name: 'Ivan Ascencio', tickets: 2 },
+  // Total tickets: 25
 ];
 
 const GUEST_LIST_AZUCENA = [
@@ -48,6 +52,7 @@ const GUEST_LIST_AZUCENA = [
   { name: 'Alan Fernandez', tickets: 1 },
   { name: 'Avril  Fernandez', tickets: 1 },
   { name: 'Graciela Jimenez', tickets: 1 },
+    // Total tickets: 23
 ];
 
 
