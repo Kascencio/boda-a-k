@@ -8,11 +8,11 @@ const GUEST_LIST_KEVIN = [
   { name: 'Jacobina de la Flor', tickets: 2 },
   { name: 'Isaac Perez', tickets: 1 },
   { name: 'Moises Ramos', tickets: 1 },
-  { name: 'Kevin Eduardo Ascencio de la Flor', tickets: 1 },
+  { name: 'Adriana Vargas', tickets: 1 },
   { name: 'Sandra Luz', tickets: 1 },
   { name: 'Olga Beatriz', tickets: 1 },
   { name: 'Ana Mendiola', tickets: 2 },
-  { name: 'Anda De la Flor', tickets: 1 },
+  { name: 'Ana De la Flor', tickets: 1 },
   { name: 'Luis Gustavo', tickets: 2 },
   { name: 'Ari Bautista', tickets: 1 },
   { name: 'Marcos Perez', tickets: 1 },
@@ -25,10 +25,31 @@ const GUEST_LIST_KEVIN = [
 ];
 
 const GUEST_LIST_AZUCENA = [
-  { name: 'Maria Gonzalez', tickets: 2 },
-  { name: 'Familia Rodriguez', tickets: 4 },
-  { name: 'Azucena', tickets: 1 },
+  { name: 'Graciela Jimenez', tickets: 1 },
+  { name: 'Maria Fernanda Cano', tickets: 1 },
+  { name: 'Marielena Jimenez', tickets: 1 },
+  { name: '⁠María del Carmen Reyes', tickets: 1 },
+  { name: 'Vania Yael Martinez', tickets: 1 },
+  { name: 'María Maza', tickets: 1 },
+  { name: 'María Carmen Solis', tickets: 1 },
+  { name: 'Yatzari Damas', tickets: 1 },
+  { name: 'Jesus David Jimenez', tickets: 1 },
+  { name: 'Norma Yin', tickets: 1 },
+  { name: 'Freddy Garcia', tickets: 1 },
+  { name: 'Andrés Emiliano Narváez', tickets: 1 },
+  { name: 'Karen', tickets: 1 },
+  { name: 'Jose Belen Benitez', tickets: 1 },
+  { name: 'María Maritza Gonzales', tickets: 1 },
+  { name: 'Carolina Sarabia', tickets: 1 },
+  { name: 'Alicia Cabrales', tickets: 1 },
+  { name: 'Carolina Gómez', tickets: 1 },
+  { name: 'Hortencia Cadena', tickets: 1 },
+  { name: 'Jhucely Dominguez', tickets: 1 },
+  { name: 'Alan Fernandez', tickets: 1 },
+  { name: 'Avril  Fernandez', tickets: 1 },
+  { name: 'Graciela Jimenez', tickets: 1 },
 ];
+
 
 export default function OctavaParte() {
   const [name, setName] = useState('');
