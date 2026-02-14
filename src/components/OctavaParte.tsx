@@ -41,7 +41,7 @@ const GUEST_LIST_AZUCENA = [
   { name: 'Norma Yin', tickets: 1 },
   { name: 'Freddy Garcia', tickets: 1 },
   { name: 'Andrés Emiliano Narváez', tickets: 1 },
-  { name: 'Karen', tickets: 1 },
+  { name: 'Karen Martinez', tickets: 1 },
   { name: 'Jose Belen Benitez', tickets: 1 },
   { name: 'María Maritza Gonzales', tickets: 1 },
   { name: 'Carolina Sarabia', tickets: 1 },
