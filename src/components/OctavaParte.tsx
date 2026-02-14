@@ -52,6 +52,8 @@ const GUEST_LIST_AZUCENA = [
   { name: 'Alan Fernandez', tickets: 1 },
   { name: 'Avril  Fernandez', tickets: 1 },
   { name: 'Graciela Jimenez', tickets: 1 },
+  { name: 'Ruby Contreras', tickets: 1 },
+
     // Total tickets: 23
 ];
 
