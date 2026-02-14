@@ -6,7 +6,7 @@ const PHONE_AZUCENA = '529932899001';
 
 const GUEST_LIST_KEVIN = [
   { name: 'Jacobina de la Flor', tickets: 2 },
-  { name: 'Eduardo Ascencio', tickets: 2 },
+  { name: 'Eduardo Ascencio', tickets: 1 },
   { name: 'Isaac Perez', tickets: 1 },
   { name: 'Moises Ramos', tickets: 1 },
   { name: 'Adriana Vargas', tickets: 1 },
