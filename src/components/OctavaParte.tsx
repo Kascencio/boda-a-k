@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 // Mock Guest Lists
 const PHONE_KEVIN = '529934010672';
-const PHONE_AZUCENA = '529932899001';
+const PHONE_AZUCENA = '529932898001';
 
 const GUEST_LIST_KEVIN = [
   { name: 'Jacobina de la Flor', tickets: 2 },
